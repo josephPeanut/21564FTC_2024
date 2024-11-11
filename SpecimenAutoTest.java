@@ -1,11 +1,11 @@
-// last worked on 11/11/24
-// TUESDAY 11/12 AGENDA: ADD RIGHT / LEFT STRAFE TO BEGINNING TO LINE UP WITH HC. (TWO SEPERATE FILES WILL BE MADE IF NEEDED.)
+// last worked on 11/11/24 during 5th hour math :D
+// TUESDAY 11/12 AGENDA: ADD RIGHT / LEFT STRAFE TO BEGINNING TO LINE UP WITH HC & HB. (TWO SEPERATE FILES WILL BE MADE IF NEEDED.)
 // NOTES
 // THIS FILE SHOULD SCORE 13 POINTS IF DONE CORRECTLY
 // PLEASE TEST THIS FILE PRIOR TO BEDFORD COMPETITION, PREFERABLY TUESDAY
 // ARM ROTATE MUST BE IN HOME POSITION PRIOR TO TELEOP. IF IT IS NOT, NOTIFY THE DRIVER TO BRING IN THE ARM ROTATE WITH CONTROLS ON "gamepad.1"
 // Specimen MUST be placed into the robot’s intake PRIOR to use
-// Please place robot right in front of the HC (High Chamber)
+// Please place robot right in front of the HC
 // Motor Speed is set right before the while statement.
 // The number right after the '<' symbol is the amount of time the motor speed will be set for (counted in seconds)
 
@@ -205,28 +205,85 @@ public class DriveRightSpecimenAutonoumous extends LinearOpMode {
             telemetry.update();
         }   
 
-        // Step 12:  Extend Servo Arm Place Sample into HB (Time = 8.50 Seconds / 30 Seconds) last left off not done
+        // Step 12:  Extend Servo Arm Place Sample into HB (Time = 8.75 Seconds / 30 Seconds)
         extendServo.setPower(0.5);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 0.5)) {
+        while (opModeIsActive() && (runtime.seconds() < 0.25)) {
             telemetry.addData("Path", "Leg 12: %4.1f S Elapsed", runtime.seconds());
             telemetry.update();
         }
-        
-        /* Step 7:  Drive To The Right To Park In The Observation Zone (Time = 7.75 Seconds / 30 Seconds)
+
+        // Step 13:  Drive SLIGHTLY Forward to line up with HB (Time = 8.85 Seconds / 30 Seconds)
         leftFrontDrive.setPower(0.5);
+        leftBackDrive.setPower(0.5);
+        righttFrontDrive.setPower(0.5);
+        rightBackDrive.setPower(0.5);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.1)) {
+            telemetry.addData("Path", "Leg 13: %4.1f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+
+        // Step 14:  Drop Sample into HB (Time = 9.35 Seconds / 30 Seconds)
+        intakeServo.setPower(-0.5);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.5)) {
+            telemetry.addData("Path", "Leg 14: %4.1f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+
+        // Step 15:  Drive back & bring everything in (Time = 10.35 Seconds / 30 Seconds)
+        leftFrontDrive.setPower(-0.5);
         leftBackDrive.setPower(-0.5);
-        rightFrontDrive.setPower(0.5);
+        rightFrontDrive.setPower(-0.5);
+        rightBackDrive.setPower(-0.5);
+        rightExtend.setPower(-0.5);
+        leftExtend.setPower(-0.5);
+        extendServo.setPower(-0.5)
+        armRotate.setTargetPosition(0);
+        armRotate.setPower(-0.5);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 1.0)) {
+            telemetry.addData("Path", "Leg 15: %4.1f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+
+        // Step 15:  Drive backward to line up for LVL 1 ascent (Time = 11.85 Seconds / 30 Seconds)
+        leftFrontDrive.setPower(-0.5);
+        leftBackDrive.setPower(-0.5);
+        rightFrontDrive.setPower(-0.5);
         rightBackDrive.setPower(-0.5);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 2.0)) {
-            telemetry.addData("Path", "Leg 7: %4.1f S Elapsed", runtime.seconds());
+        while (opModeIsActive() && (runtime.seconds() < 1.5)) {
+            telemetry.addData("Path", "Leg 15: %4.1f S Elapsed", runtime.seconds());
             telemetry.update();
-        } */
+        }
 
+        // Step 15:  Rotate -90 Degrees line up for LVL 1 ascent (Time = 12.35 Seconds / 30 Seconds)
+        leftFrontDrive.setPower(-0.5);
+        leftBackDrive.setPower(-0.5);
+        rightFrontDrive.setPower(0.5);
+        rightBackDrive.setPower(0.5);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.5)) {
+            telemetry.addData("Path", "Leg 15: %4.1f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
 
-
-        // End Of Autonomous (End Time = 7.75 Seconds / 30 Seconds)
+        // Step 15:  Drive forward & extend lift to line up for LVL 1 ascent (Time = 15.85 Seconds / 30 Seconds)
+        leftFrontDrive.setPower(0.5);
+        leftBackDrive.setPower(0.5);
+        rightFrontDrive.setPower(0.5);
+        rightBackDrive.setPower(0.5);
+        rightExtend.setPower(0.2);
+        leftExtend.setPower(0.2);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 3.5)) {
+            telemetry.addData("Path", "Leg 15: %4.1f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+        
+        // End Of Autonomous (End Time = 15.85 Seconds / 30 Seconds)
         telemetry.addData("Autonomous", "Complete");
         telemetry.addData("Good Luck!");
         telemetry.update();
