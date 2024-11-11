@@ -85,7 +85,8 @@ public class SpecimenAutonoumous extends LinearOpMode {
         }
 
         // Step 2:  Rotate Intake Arm to Middle Position (Time = 1.75 Seconds / 30 Seconds)
-        armRotate.setPower(.5);
+        armRotate.setTargetPosition(.5);
+        armRotate.setPower(1);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 0.75)) {
             telemetry.addData("Path", "Leg 2: %4.1f S Elapsed", runtime.seconds());
@@ -121,11 +122,13 @@ public class SpecimenAutonoumous extends LinearOpMode {
             telemetry.update();
         }
 
-        // Step 6:  Drive Backward To Line Up With Observation Zone To Park (Time = 4.15 Seconds / 30 Seconds)
+        // Step 6:  Drive Backward To Line Up With Observation Zone To Park & Bring in Arm Rotation (Time = 4.15 Seconds / 30 Seconds)
         leftFrontDrive.setPower(0.5);
         leftBackDrive.setPower(0.5);
         rightFrontDrive.setPower(0.5);
         rightBackDrive.setPower(0.5);
+        armRotate.setTargetPosition(0);
+        armRotate.setPower(-1);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1.0)) {
             telemetry.addData("Path", "Leg 6: %4.1f S Elapsed", runtime.seconds());
