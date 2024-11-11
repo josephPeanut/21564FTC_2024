@@ -36,7 +36,7 @@ public class SpecimenAutonoumous extends LinearOpMode {
     private DcMotor armRotate = null;
     private CRServo intakeServo = null;
     private Servo extendServo = null;
-    double extendServoPosition = 0.25;
+    double extendServoPosition = 0;
     double leftPosition;
     double rightPosition;
     int setRightPosition = 0;
