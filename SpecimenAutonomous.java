@@ -2,10 +2,11 @@
 // NOTES
 // THIS FILE SHOULD SCORE 13 POINTS IF DONE CORRECTLY
 // PLEASE TEST THIS FILE PRIOR TO BEDFORD COMPETITION, PREFERABLY TUESDAY
-// Specimen MUST be placed into the robot’s intake PRIOR to testing
-// Please place robot right in front of the HC (High Camber)
+// ARM ROTATE MUST BE IN HOME POSITION PRIOR TO TELEOP. IF NOT, NOTIFY THE DRIVER TO BRING IN THE ARM ROTATE WITH CONTROLS ON "gamepad.1"
+// Specimen MUST be placed into the robot’s intake PRIOR to use
+// Please place robot right in front of the HC (High Chamber)
 // Motor Speed is set right before the while statement.
-// The number right after the < symbol is the amount of time the motor speed will be set for (counted in seconds)
+// The number right after the '<' symbol is the amount of time the motor speed will be set for (counted in seconds)
 
 // package
 package  org.firstinspires.ftc.teamcode;
