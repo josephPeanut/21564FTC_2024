@@ -135,7 +135,7 @@ public class DriveRightSpecimenAutonoumous extends LinearOpMode {
             telemetry.update();
         }
 
-        // Step 6:  Drive Backward To Line Up With Observation Zone To Park & Bring in Arm Rotation (Time = 5.75 Seconds / 30 Seconds)
+        // Step 6:  Drive Backward To Line Up With Observation Zone To Park & Bring in Arm Rotation (Time = 5.25 Seconds / 30 Seconds)
         leftFrontDrive.setPower(-0.5);
         leftBackDrive.setPower(-0.5);
         rightFrontDrive.setPower(-0.5);
@@ -143,12 +143,77 @@ public class DriveRightSpecimenAutonoumous extends LinearOpMode {
         armRotate.setTargetPosition(0);
         armRotate.setPower(-1);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 1.0)) {
+        while (opModeIsActive() && (runtime.seconds() < 0.5)) {
             telemetry.addData("Path", "Leg 6: %4.1f S Elapsed", runtime.seconds());
             telemetry.update();
         }
+        // Step 7:  Drive to Left Spikes & Drop Servo Arm to Pick up Yellow Sample (Time = 6.75 Seconds / 30 Seconds)
+        leftFrontDrive.setPower(-0.5);
+        leftBackDrive.setPower(0.5);
+        rightFrontDrive.setPower(-0.5);
+        rightBackDrive.setPower(0.5);
+        armRotate.setTargetPosition(1);
+        armRotate.setPower(1);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 1.5)) {
+            telemetry.addData("Path", "Leg 7: %4.1f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
 
-        // Step 7:  Drive To The Right To Park In The Observation Zone (Time = 7.75 Seconds / 30 Seconds)
+        // Step 8:  Turn on INFEED and Drive through yellow sample to pick up (Time = 7.25 Seconds / 30 Seconds)
+        intakeServo.setPower(-0.5);
+        leftFrontDrive.setPower(0.5)
+        leftBackDrive.setPower(0.5);
+        rightFrontDrive.setPower(0.5);
+        rightBackDrive.setPower(0.5);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.5)) {
+            telemetry.addData("Path", "Leg 8: %4.1f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }        
+
+        // Step 9:  Turn 180 degrees to line up with HB (Time = 7.75 Seconds / 30 Seconds)
+        armRotate.setTargetPosition(0.5);
+        armRotate.setPower(-1);
+        leftFrontDrive.setPower(0.5)
+        leftBackDrive.setPower(0.5);
+        rightFrontDrive.setPower(-0.5);
+        rightBackDrive.setPower(-0.5);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.5)) {
+            telemetry.addData("Path", "Leg 9: %4.1f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }                
+
+        // Step 10:  Turn Right line up with HB (Time = 8.00 Seconds / 30 Seconds)
+        leftFrontDrive.setPower(0.5)
+        leftBackDrive.setPower(-0.5);
+        rightFrontDrive.setPower(0.5);
+        rightBackDrive.setPower(-0.5);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.25)) {
+            telemetry.addData("Path", "Leg 10: %4.1f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }           
+
+        // Step 11:  Extend Lift to Place Sample into HB (Time = 8.50 Seconds / 30 Seconds)
+        rightExtend.setPower(0.5)
+        leftExtend.setPower(-0.5);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.5)) {
+            telemetry.addData("Path", "Leg 11: %4.1f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }   
+
+        // Step 12:  Extend Servo Arm Place Sample into HB (Time = 8.50 Seconds / 30 Seconds) last left off not done
+        extendServo.setPower(0.5);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.5)) {
+            telemetry.addData("Path", "Leg 12: %4.1f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+        
+        /* Step 7:  Drive To The Right To Park In The Observation Zone (Time = 7.75 Seconds / 30 Seconds)
         leftFrontDrive.setPower(0.5);
         leftBackDrive.setPower(-0.5);
         rightFrontDrive.setPower(0.5);
@@ -157,7 +222,7 @@ public class DriveRightSpecimenAutonoumous extends LinearOpMode {
         while (opModeIsActive() && (runtime.seconds() < 2.0)) {
             telemetry.addData("Path", "Leg 7: %4.1f S Elapsed", runtime.seconds());
             telemetry.update();
-        }
+        } */
 
 
 
