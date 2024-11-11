@@ -284,7 +284,7 @@ public class DriveRightSpecimenAutonoumous extends LinearOpMode {
         
         // End Of Autonomous (End Time = 15.85 Seconds / 30 Seconds)
         telemetry.addData("Autonomous", "Complete");
-        telemetry.addData("Good Luck!");
+        telemetry.addData("Good Luck Drive Team!");
         telemetry.update();
         sleep(1000);
     }
