@@ -23,7 +23,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 @Autonomous(name="Robot: Auto Drive By Time", group="Robot")
 @Disabled
-public class SpecimenAutonoumous extends LinearOpMode {
+public class DriveRightSpecimenAutonoumous extends LinearOpMode {
 
     /* Declare OpMode members. */
     private ElapsedTime runtime = new ElapsedTime();
@@ -74,8 +74,19 @@ public class SpecimenAutonoumous extends LinearOpMode {
         waitForStart();
 
         // Step through each leg of the path, ensuring that the OpMode has not been stopped along the way.
-
-        // Step 1:  Drive forward for a second (Time = 1.0 Seconds / 30 Seconds)
+      
+    
+        // Step 1: Stafe Right To Line Up With HC (Time = 0.5 Seconds / 30 Seconds)
+        leftFrontDrive.setPower(0.5);
+        leftBackDrive.setPower(-0.5);
+        rightFrontDrive.setPower(0.5);
+        rightBackDrive.setPower(-0.5);
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.5)) {
+            telemetry.addData("Path", "Leg 1: %4.1f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+        // Step 1:  Drive forward for a second (Time = 1.5 Seconds / 30 Seconds)
         leftFrontDrive.setPower(0.5);
         leftBackDrive.setPower(0.5);
         rightFrontDrive.setPower(0.5);
@@ -86,7 +97,7 @@ public class SpecimenAutonoumous extends LinearOpMode {
             telemetry.update();
         }
 
-        // Step 2:  Rotate Intake Arm to Middle Position (Time = 1.75 Seconds / 30 Seconds)
+        // Step 2:  Rotate Intake Arm to Middle Position (Time = 2.25 Seconds / 30 Seconds)
         armRotate.setTargetPosition(.5);
         armRotate.setPower(1);
         runtime.reset();
@@ -95,7 +106,7 @@ public class SpecimenAutonoumous extends LinearOpMode {
             telemetry.update();
         }
 
-        // Step 3:  Extend arm to get ready to place specimen (Time = 2.75 Seconds / 30 Seconds)
+        // Step 3:  Extend arm to get ready to place specimen (Time = 3.25 Seconds / 30 Seconds)
         leftExtend.setPower(.5);
         rightExtend.setPower(.5);
         runtime.reset();
@@ -104,7 +115,7 @@ public class SpecimenAutonoumous extends LinearOpMode {
             telemetry.update();
         }
 
-        // Step 4:  Drive Forward to Further Continue to Place on High Chamber (HC) (Time = 2.25 Seconds / 30 Seconds)
+        // Step 4:  Drive Forward to Further Continue to Place on High Chamber (HC) (Time = 3.75 Seconds / 30 Seconds)
         leftFrontDrive.setPower(0.5);
         leftBackDrive.setPower(0.5);
         rightFrontDrive.setPower(0.5);
@@ -115,7 +126,7 @@ public class SpecimenAutonoumous extends LinearOpMode {
             telemetry.update();
         }
 
-        // Step 5:  Bring down lift to place specimen on high bar (Time = 3.25 Seconds / 30 Seconds)
+        // Step 5:  Bring down lift to place specimen on high bar (Time = 4.75 Seconds / 30 Seconds)
        leftExtend.setPower(-0.5);
        rightExtend.setPower(-0.5);
        runtime.reset();
@@ -124,7 +135,7 @@ public class SpecimenAutonoumous extends LinearOpMode {
             telemetry.update();
         }
 
-        // Step 6:  Drive Backward To Line Up With Observation Zone To Park & Bring in Arm Rotation (Time = 4.15 Seconds / 30 Seconds)
+        // Step 6:  Drive Backward To Line Up With Observation Zone To Park & Bring in Arm Rotation (Time = 5.75 Seconds / 30 Seconds)
         leftFrontDrive.setPower(0.5);
         leftBackDrive.setPower(0.5);
         rightFrontDrive.setPower(0.5);
@@ -137,7 +148,7 @@ public class SpecimenAutonoumous extends LinearOpMode {
             telemetry.update();
         }
 
-        // Step 7:  Drive To The Right To Park In The Observation Zone (Time = 6.15 Seconds / 30 Seconds)
+        // Step 7:  Drive To The Right To Park In The Observation Zone (Time = 7.75 Seconds / 30 Seconds)
         leftFrontDrive.setPower(0.5);
         leftBackDrive.setPower(-0.5);
         rightFrontDrive.setPower(0.5);
@@ -150,7 +161,7 @@ public class SpecimenAutonoumous extends LinearOpMode {
 
 
 
-        // End Of Autonomous (End Time = 6.15 Seconds / 30 Seconds)
+        // End Of Autonomous (End Time = 7.75 Seconds / 30 Seconds)
         telemetry.addData("Autonomous", "Complete");
         telemetry.addData("Good Luck!");
         telemetry.update();
