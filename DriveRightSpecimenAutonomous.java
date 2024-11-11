@@ -136,10 +136,10 @@ public class DriveRightSpecimenAutonoumous extends LinearOpMode {
         }
 
         // Step 6:  Drive Backward To Line Up With Observation Zone To Park & Bring in Arm Rotation (Time = 5.75 Seconds / 30 Seconds)
-        leftFrontDrive.setPower(0.5);
-        leftBackDrive.setPower(0.5);
-        rightFrontDrive.setPower(0.5);
-        rightBackDrive.setPower(0.5);
+        leftFrontDrive.setPower(-0.5);
+        leftBackDrive.setPower(-0.5);
+        rightFrontDrive.setPower(-0.5);
+        rightBackDrive.setPower(-0.5);
         armRotate.setTargetPosition(0);
         armRotate.setPower(-1);
         runtime.reset();
