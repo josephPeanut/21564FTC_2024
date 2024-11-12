@@ -185,7 +185,7 @@ public class DriveRightSpecimenAutonoumous extends LinearOpMode {
         }                
 
         // Step 10:  Turn Right line up with HB (Time = 8.00 Seconds / 30 Seconds)
-        leftFrontDrive.setPower(0.5)
+        leftFrontDrive.setPower(0.5);
         leftBackDrive.setPower(-0.5);
         rightFrontDrive.setPower(0.5);
         rightBackDrive.setPower(-0.5);
