@@ -161,7 +161,7 @@ public class DriveRightSpecimenAutonoumous extends LinearOpMode {
 
         // Step 8:  Turn on INFEED and Drive through yellow sample to pick up (Time = 7.25 Seconds / 30 Seconds)
         intakeServo.setPower(-0.5);
-        leftFrontDrive.setPower(0.5)
+        leftFrontDrive.setPower(0.5);
         leftBackDrive.setPower(0.5);
         rightFrontDrive.setPower(0.5);
         rightBackDrive.setPower(0.5);
@@ -174,7 +174,7 @@ public class DriveRightSpecimenAutonoumous extends LinearOpMode {
         // Step 9:  Turn 180 degrees to line up with HB (Time = 7.75 Seconds / 30 Seconds)
         armRotate.setTargetPosition(0.5);
         armRotate.setPower(-1);
-        leftFrontDrive.setPower(0.5)
+        leftFrontDrive.setPower(0.5);
         leftBackDrive.setPower(0.5);
         rightFrontDrive.setPower(-0.5);
         rightBackDrive.setPower(-0.5);
@@ -196,7 +196,7 @@ public class DriveRightSpecimenAutonoumous extends LinearOpMode {
         }           
 
         // Step 11:  Extend Lift to Place Sample into HB (Time = 8.50 Seconds / 30 Seconds)
-        rightExtend.setPower(0.5)
+        rightExtend.setPower(0.5);
         leftExtend.setPower(-0.5);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 0.5)) {
