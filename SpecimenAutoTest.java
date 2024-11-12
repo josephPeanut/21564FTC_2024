@@ -247,29 +247,29 @@ public class DriveRightSpecimenAutonoumous extends LinearOpMode {
             telemetry.update();
         }
 
-        // Step 15:  Drive backward to line up for LVL 1 ascent (Time = 11.85 Seconds / 30 Seconds)
+        // Step 16:  Drive backward to line up for LVL 1 ascent (Time = 11.85 Seconds / 30 Seconds)
         leftFrontDrive.setPower(-0.5);
         leftBackDrive.setPower(-0.5);
         rightFrontDrive.setPower(-0.5);
         rightBackDrive.setPower(-0.5);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1.5)) {
-            telemetry.addData("Path", "Leg 15: %4.1f S Elapsed", runtime.seconds());
+            telemetry.addData("Path", "Leg 16: %4.1f S Elapsed", runtime.seconds());
             telemetry.update();
         }
 
-        // Step 15:  Rotate -90 Degrees line up for LVL 1 ascent (Time = 12.35 Seconds / 30 Seconds)
+        // Step 17:  Rotate -90 Degrees line up for LVL 1 ascent (Time = 12.35 Seconds / 30 Seconds)
         leftFrontDrive.setPower(-0.5);
         leftBackDrive.setPower(-0.5);
         rightFrontDrive.setPower(0.5);
         rightBackDrive.setPower(0.5);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 0.5)) {
-            telemetry.addData("Path", "Leg 15: %4.1f S Elapsed", runtime.seconds());
+            telemetry.addData("Path", "Leg 17: %4.1f S Elapsed", runtime.seconds());
             telemetry.update();
         }
 
-        // Step 15:  Drive forward & extend lift to line up for LVL 1 ascent (Time = 15.85 Seconds / 30 Seconds)
+        // Step 18:  Drive forward & extend lift to line up for LVL 1 ascent (Time = 15.85 Seconds / 30 Seconds)
         leftFrontDrive.setPower(0.5);
         leftBackDrive.setPower(0.5);
         rightFrontDrive.setPower(0.5);
@@ -278,7 +278,7 @@ public class DriveRightSpecimenAutonoumous extends LinearOpMode {
         leftExtend.setPower(0.2);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 3.5)) {
-            telemetry.addData("Path", "Leg 15: %4.1f S Elapsed", runtime.seconds());
+            telemetry.addData("Path", "Leg 18: %4.1f S Elapsed", runtime.seconds());
             telemetry.update();
         }
         
