@@ -134,7 +134,7 @@ public class DriveRightSpecimenAutonoumous extends LinearOpMode {
             telemetry.update();
         }
 
-        // Step 6:  Drive Backward To Line Up With Observation Zone To Park & Bring in Arm Rotation (Time = 5.25 Seconds / 30 Seconds)
+        // Step 6:  Drive Backward To Prepare to Put Yellow Sample into HB (Time = 5.25 Seconds / 30 Seconds)
         leftFrontDrive.setPower(-0.5);
         leftBackDrive.setPower(-0.5);
         rightFrontDrive.setPower(-0.5);
