@@ -78,7 +78,7 @@ public class DosSampleAuto extends LinearOpMode {
         
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1.5)) {
-            telemetry.addData("Path", "Leg 1: %4.1f S Elapsed", runtime.seconds());
+            telemetry.addData("Path", "Leg 2: %4.1f S Elapsed", runtime.seconds());
             telemetry.update();
         }
 
@@ -89,7 +89,7 @@ public class DosSampleAuto extends LinearOpMode {
         
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 0.5)) {
-            telemetry.addData("Path", "Leg 1: %4.1f S Elapsed", runtime.seconds());
+            telemetry.addData("Path", "Leg 3: %4.1f S Elapsed", runtime.seconds());
             telemetry.update();
         }
 
@@ -100,7 +100,7 @@ public class DosSampleAuto extends LinearOpMode {
         
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 0.25)) {
-            telemetry.addData("Path", "Leg 1: %4.1f S Elapsed", runtime.seconds());
+            telemetry.addData("Path", "Leg 4: %4.1f S Elapsed", runtime.seconds());
             telemetry.update();
         }
 
@@ -109,11 +109,10 @@ public class DosSampleAuto extends LinearOpMode {
         leftBackDrive.setPower(0.5);
         rightFrontDrive.setPower(0.5);
         rightBackDrive.setPower(0.5);
-    
         
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 0.25)) {
-            telemetry.addData("Path", "Leg 1: %4.1f S Elapsed", runtime.seconds());
+            telemetry.addData("Path", "Leg 5: %4.1f S Elapsed", runtime.seconds());
             telemetry.update();
         }
 
@@ -126,16 +125,15 @@ public class DosSampleAuto extends LinearOpMode {
         
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 0.50)) {
-            telemetry.addData("Path", "Leg 1: %4.1f S Elapsed", runtime.seconds());
+            telemetry.addData("Path", "Leg 6: %4.1f S Elapsed", runtime.seconds());
             telemetry.update();
         }
-
 
         intakeServo.setPower(.25);
         
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1)) {
-            telemetry.addData("Path", "Leg 1: %4.1f S Elapsed", runtime.seconds());
+            telemetry.addData("Path", "Leg 7: %4.1f S Elapsed", runtime.seconds());
             telemetry.update();
         }
 
@@ -150,17 +148,16 @@ public class DosSampleAuto extends LinearOpMode {
     
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1)) {
-            telemetry.addData("Path", "Leg 1: %4.1f S Elapsed", runtime.seconds());
+            telemetry.addData("Path", "Leg 8: %4.1f S Elapsed", runtime.seconds());
             telemetry.update();
         }
 
         armRotate.setTargetPosition(1);
         armRotate.setPower(1);
         
-    
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1)) {
-            telemetry.addData("Path", "Leg 1: %4.1f S Elapsed", runtime.seconds());
+            telemetry.addData("Path", "Leg 9: %4.1f S Elapsed", runtime.seconds());
             telemetry.update();
         }
 
@@ -169,15 +166,67 @@ public class DosSampleAuto extends LinearOpMode {
         leftBackDrive.setPower(0.5);
         rightFrontDrive.setPower(0.5);
         rightBackDrive.setPower(0.5);
-        intakeServo(1);
+        intakeServo.setPower(1);
         
-    
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1)) {
-            telemetry.addData("Path", "Leg 1: %4.1f S Elapsed", runtime.seconds());
+            telemetry.addData("Path", "Leg 10: %4.1f S Elapsed", runtime.seconds());
             telemetry.update();
         }
 
+
+        leftFrontDrive.setPower(0.5);
+        leftBackDrive.setPower(0.5);
+        rightFrontDrive.setPower(-0.5);
+        rightBackDrive.setPower(-0.5);
+        armRotate.setTargetPosition(0.5);
+        armRotate.setPower(-1);
+    
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.5)) {
+            telemetry.addData("Path", "Leg 11: %4.1f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+
+        
+        rightExtend.setPower(0.5);
+        leftExtend.setPower(0.5);
+
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.5)) {
+            telemetry.addData("Path", "Leg 12: %4.1f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+
+        leftFrontDrive.setPower(0.5);
+        leftBackDrive.setPower(0.5);
+        rightFrontDrive.setPower(0.5);
+        rightBackDrive.setPower(0.5);
+
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.25)) {
+            telemetry.addData("Path", "Leg 13: %4.1f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+
+        intakeServo.setPower(1);
+
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.75)) {
+            telemetry.addData("Path", "Leg 14: %4.1f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+
+        armRotate.setTargetPosition(0);
+        armRotate.setPower(-1);
+        rightExtend.setPower(-1);
+        leftExtend.setPower(-1);
+
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.75)) {
+            telemetry.addData("Path", "Leg 15: %4.1f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
 
 
 
