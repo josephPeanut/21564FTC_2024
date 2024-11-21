@@ -37,8 +37,8 @@ public class DriveLeftSpecimenAutonoumous extends LinearOpMode {
     private DcMotor rightExtend = null;
     private DcMotor armRotate = null;
     private CRServo intakeServo = null;
-    private Servo extendServo = null;
-    double extendServoPosition = 0;
+    private Servo ArmExtend = null;
+    double ArmExtendPosition = 0;
     double leftPosition;
     double rightPosition;
     int setRightPosition = 0;
@@ -59,7 +59,7 @@ public class DriveLeftSpecimenAutonoumous extends LinearOpMode {
         rightExtend = hardwareMap.get(DcMotor.class, "right_extend");
         armRotate = hardwareMap.get(DcMotor.class, "armRotate");
         intakeServo = hardwareMap.get(CRServo.class, "intakeServo");
-        extendServo = hardwareMap.get(Servo.class, "extendServo");
+        ArmExtend = hardwareMap.get(DcMotor.class, "ArmExtend");
 
         // To drive forward, most robots need the motor on one side to be reversed, because the axles point in opposite directions.
         // When run, this OpMode should start both motors driving forward. So adjust these two lines based on your first test drive.
@@ -78,7 +78,7 @@ public class DriveLeftSpecimenAutonoumous extends LinearOpMode {
         // Step through each leg of the path, ensuring that the OpMode has not been stopped along the way.
       
     
-        // Step 1: Stafe Right To Line Up With HC (Time = 0.5 Seconds / 30 Seconds)
+        // Step 1: Stafe Left To Line Up With HC (Time = 0.5 Seconds / 30 Seconds)
         leftFrontDrive.setPower(-0.5);
         leftBackDrive.setPower(0.5);
         rightFrontDrive.setPower(-0.5);
@@ -100,8 +100,12 @@ public class DriveLeftSpecimenAutonoumous extends LinearOpMode {
         }
 
         // Step 2:  Rotate Intake Arm to Middle Position (Time = 2.25 Seconds / 30 Seconds)
-        armRotate.setTargetPosition(.5);
-        armRotate.setPower(1);
+        leftFrontDrive.setPower(0);
+        leftBackDrive.setPower(0);
+        rightFrontDrive.setPower(0);
+        rightBackDrive.setPower(0);
+        armRotate.setTargetPosition(625);
+        armRotate.setPower(0.5);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 0.75)) {
             telemetry.addData("Path", "Leg 2: %4.1f S Elapsed", runtime.seconds());
@@ -109,6 +113,7 @@ public class DriveLeftSpecimenAutonoumous extends LinearOpMode {
         }
 
         // Step 3:  Extend arm to get ready to place specimen (Time = 3.25 Seconds / 30 Seconds)
+        armRotate.setPower(0);
         leftExtend.setPower(.5);
         rightExtend.setPower(.5);
         runtime.reset();
@@ -118,6 +123,8 @@ public class DriveLeftSpecimenAutonoumous extends LinearOpMode {
         }
 
         // Step 4:  Drive Forward to Further Continue to Place on High Chamber (HC) (Time = 3.75 Seconds / 30 Seconds)
+        leftExtend.setPower(.05);
+        rightExtend.setPower(.05);
         leftFrontDrive.setPower(0.5);
         leftBackDrive.setPower(0.5);
         rightFrontDrive.setPower(0.5);
@@ -129,6 +136,10 @@ public class DriveLeftSpecimenAutonoumous extends LinearOpMode {
         }
 
         // Step 5:  Bring down lift to place specimen on high bar (Time = 4.75 Seconds / 30 Seconds)
+       leftFrontDrive.setPower(0);
+       leftBackDrive.setPower(0);
+       rightFrontDrive.setPower(0);
+       rightBackDrive.setPower(0);
        leftExtend.setPower(-0.5);
        rightExtend.setPower(-0.5);
        runtime.reset();
@@ -143,7 +154,7 @@ public class DriveLeftSpecimenAutonoumous extends LinearOpMode {
         rightFrontDrive.setPower(-0.5);
         rightBackDrive.setPower(-0.5);
         armRotate.setTargetPosition(0);
-        armRotate.setPower(-1);
+        armRotate.setPower(-0.5);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1.0)) {
             telemetry.addData("Path", "Leg 6: %4.1f S Elapsed", runtime.seconds());
@@ -151,10 +162,10 @@ public class DriveLeftSpecimenAutonoumous extends LinearOpMode {
         }
 
         // Step 7:  Drive To The Right To Park In The Observation Zone (Time = 7.75 Seconds / 30 Seconds)
-        leftFrontDrive.setPower(-0.5);
-        leftBackDrive.setPower(0.5);
-        rightFrontDrive.setPower(-0.5);
-        rightBackDrive.setPower(0.5);
+        leftFrontDrive.setPower(0.5);
+        leftBackDrive.setPower(-0.5);
+        rightFrontDrive.setPower(0.5);
+        rightBackDrive.setPower(-0.5);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 2.0)) {
             telemetry.addData("Path", "Leg 7: %4.1f S Elapsed", runtime.seconds());
