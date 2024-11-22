@@ -1,8 +1,6 @@
 // SIMPLE DRIVE LEFT sPECIMEN CODe FOR AUTO
 
-// last worked on 11/10/24
-// TUESDAY 11/12 AGENDA: ADD RIGHT / LEFT STRAFE TO BEGINNING TO LINE UP WITH HC. (TWO SEPERATE FILES WILL BE MADE IF NEEDED.)
-// NOTES
+// this code is assuming that when the motor's power is set to 1.0, it will go one tile per second.
 // THIS FILE SHOULD SCORE 13 POINTS IF DONE CORRECTLY
 // PLEASE TEST THIS FILE PRIOR TO BEDFORD COMPETITION, PREFERABLY TUESDAY
 // ARM ROTATE MUST BE IN HOME POSITION PRIOR TO TELEOP. IF IT IS NOT, NOTIFY THE DRIVER TO BRING IN THE ARM ROTATE WITH CONTROLS ON "gamepad.1"
@@ -10,6 +8,7 @@
 // Please place robot right in front of the HC (High Chamber)
 // Motor Speed is set right before the while statement.
 // The number right after the '<' symbol is the amount of time the motor speed will be set for (counted in seconds)
+// time is nowhere NEAR correct.
 
 // package
 package  org.firstinspires.ftc.teamcode;
@@ -78,13 +77,13 @@ public class DriveLeftSpecimenAutonoumous extends LinearOpMode {
         // Step through each leg of the path, ensuring that the OpMode has not been stopped along the way.
       
     
-        // Step 1: Stafe Left To Line Up With HC (Time = 0.5 Seconds / 30 Seconds)
+        // Step 1: Stafe Left To Line Up With HC (Time = 3.0 Seconds / 30 Seconds)
         leftFrontDrive.setPower(-0.5);
         leftBackDrive.setPower(0.5);
         rightFrontDrive.setPower(-0.5);
         rightBackDrive.setPower(0.5);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 0.5)) {
+        while (opModeIsActive() && (runtime.seconds() < 3.0)) {
             telemetry.addData("Path", "Leg 1: %4.1f S Elapsed", runtime.seconds());
             telemetry.update();
         }
@@ -94,7 +93,7 @@ public class DriveLeftSpecimenAutonoumous extends LinearOpMode {
         rightFrontDrive.setPower(0.5);
         rightBackDrive.setPower(0.5);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 1.0)) {
+        while (opModeIsActive() && (runtime.seconds() < 2.0)) {
             telemetry.addData("Path", "Leg 1: %4.1f S Elapsed", runtime.seconds());
             telemetry.update();
         }
@@ -130,7 +129,7 @@ public class DriveLeftSpecimenAutonoumous extends LinearOpMode {
         rightFrontDrive.setPower(0.5);
         rightBackDrive.setPower(0.5);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 0.5)) {
+        while (opModeIsActive() && (runtime.seconds() < 0.35)) {
             telemetry.addData("Path", "Leg 4: %4.1f S Elapsed", runtime.seconds());
             telemetry.update();
         }
@@ -156,7 +155,7 @@ public class DriveLeftSpecimenAutonoumous extends LinearOpMode {
         armRotate.setTargetPosition(0);
         armRotate.setPower(-0.5);
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 1.0)) {
+        while (opModeIsActive() && (runtime.seconds() < 2.35)) {
             telemetry.addData("Path", "Leg 6: %4.1f S Elapsed", runtime.seconds());
             telemetry.update();
         }
