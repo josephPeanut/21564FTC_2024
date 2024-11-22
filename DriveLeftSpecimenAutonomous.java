@@ -140,8 +140,8 @@ public class DriveLeftSpecimenAutonoumous extends LinearOpMode {
        leftBackDrive.setPower(0);
        rightFrontDrive.setPower(0);
        rightBackDrive.setPower(0);
-       leftExtend.setPower(-0.5);
-       rightExtend.setPower(-0.5);
+       leftExtend.setPower(-1);
+       rightExtend.setPower(-1);
        runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1.0)) {
             telemetry.addData("Path", "Leg 5: %4.1f S Elapsed", runtime.seconds());
