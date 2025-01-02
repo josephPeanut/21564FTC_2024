@@ -1,12 +1,14 @@
-// NOTES
-// THIS TEST CODE WILL TRY TO PLACE SPECIMEN ON HC, PLACE YELLOW SAMPLE INTO HB, AND REACH A LVL 1 ASCENT, GETTING 21 POINTS PRIOR TO TELEOP.
-// TUESDAY 11/12 AGENDA: ADD RIGHT / LEFT STRAFE TO BEGINNING TO LINE UP WITH HC & HB. (TWO SEPERATE FILES WILL BE MADE IF NEEDED.)
-// PLEASE TEST THIS FILE PRIOR TO BEDFORD COMPETITION, PREFERABLY TUESDAY
-// ARM ROTATE MUST BE IN HOME POSITION PRIOR TO TELEOP. IF IT IS NOT, NOTIFY THE DRIVER TO BRING IN THE ARM ROTATE WITH CONTROLS ON "gamepad.1"
-// Specimen MUST be placed into the robot’s intake PRIOR to use
-// Please place robot right in front of the HC
-// Motor Speed is set right before the while statement.
-// The number right after the '<' symbol is the amount of time the motor speed will be set for (counted in seconds)
+/* 
+ NOTES
+ THIS TEST CODE WILL TRY TO PLACE SPECIMEN ON HC, PLACE YELLOW SAMPLE INTO HB, AND REACH A LVL 1 ASCENT, GETTING 21 POINTS PRIOR TO TELEOP.
+ TUESDAY 11/12 AGENDA: ADD RIGHT / LEFT STRAFE TO BEGINNING TO LINE UP WITH HC & HB. (TWO SEPERATE FILES WILL BE MADE IF NEEDED.)
+ PLEASE TEST THIS FILE PRIOR TO BEDFORD COMPETITION, PREFERABLY TUESDAY
+ ARM ROTATE MUST BE IN HOME POSITION PRIOR TO TELEOP. IF IT IS NOT, NOTIFY THE DRIVER TO BRING IN THE ARM ROTATE WITH CONTROLS ON "gamepad.1"
+ Specimen MUST be placed into the robot’s intake PRIOR to use
+ Please place robot right in front of the HC
+ Motor Speed is set right before the while statement.
+ The number right after the '<' symbol is the amount of time the motor speed will be set for (counted in seconds)
+*/
 
 // package
 package  org.firstinspires.ftc.teamcode;
