@@ -98,16 +98,49 @@ public class DriveRightSpecimenAutonoumous extends LinearOpMode {
             telemetry.update();
         }
 
+      leftFrontDrive.setPower(-0.5);
+      leftBackDrive.setPower(-0.5);
+      rightFrontDrive.setPower(-0.5);
+      rightBackDrive.setPower(-0.5);
+      armRotate.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+      armRotateSetPosition = 0;      
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 1.0)) {
+            telemetry.addData("Path", "Leg 1: %4.1f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+
+      leftFrontDrive.setPower(-0.5);
+      leftBackDrive.setPower(0.5);
+      rightFrontDrive.setPower(-0.5);
+      rightBackDrive.setPower(0.5);
+          
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 2.0)) {
+            telemetry.addData("Path", "Leg 1: %4.1f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+
       leftFrontDrive.setPower(0.5);
       leftBackDrive.setPower(0.5);
       rightFrontDrive.setPower(0.5);
       rightBackDrive.setPower(0.5);
-      armRotate.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-      armRotateSetPosition = 672;
-      leftExtend.setPower(.8);
-      rightExtend.setPower(.8);
+          
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 0.5)) {
+        while (opModeIsActive() && (runtime.seconds() < 1.5)) {
+            telemetry.addData("Path", "Leg 1: %4.1f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
+
+      leftFrontDrive.setPower(0.5);
+      leftBackDrive.setPower(-0.5);
+      rightFrontDrive.setPower(0.5);
+      rightBackDrive.setPower(-0.5);
+      leftExtend.setPower(0.8);
+      rightExtend.setPower(0.8);
+          
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 5.0)) {
             telemetry.addData("Path", "Leg 1: %4.1f S Elapsed", runtime.seconds());
             telemetry.update();
         }
